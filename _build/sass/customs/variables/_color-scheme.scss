@@ -1,0 +1,26 @@
+$primary: #0e3c4f !default;
+	$primary-light: #0e3b4e !default;
+	$primary-dark: #003344 !default;
+$secondary: #d0ae56 !default;
+
+$danger: #b45541 !default;
+
+$light: #dfd8d2 !default;
+$lighter: #f9f8f6 !default;
+
+$black:#000000 !default;
+$white:#ffffff !default;
+
+$body-bg:#ffffff !default;
+$body-color:#012d44 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+	"primary-light": $primary-light,
+	"primary-dark": $primary-dark,
+	"lighter": $lighter,
+  "black": $black,
+  "white": $white,
+  "body-bg":    $body-bg,
+  "body-color":  $body-color
+), $theme-colors);

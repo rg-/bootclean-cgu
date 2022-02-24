@@ -1,0 +1,82 @@
+
+
+/*
+	Prevent slick container to be higher than before initialized
+	Should use col-* classes on slick > .item element
+*/
+.theme-slick-slider.row{
+	&:not(.slick-initialized){
+		flex-wrap: nowrap;
+	}
+}
+
+.ui-slick-overflow{
+	margin:0 -25px;
+	.slick-list{
+		overflow: visible;
+		.slick-slide{
+			z-index: 10;
+			&:hover{
+				z-index: 20;
+			}
+			.item{
+				@include transition();
+				@include opacity(.15);
+			}
+			&.slick-active{
+				.item{
+					@include opacity(1);
+				}
+			}
+		}
+	}
+	.slick-item-padding{
+		padding: 25px;
+	}
+}
+
+.slick-slide{
+	overflow: hidden;
+	z-index: 0;
+	&.slick-active{
+		z-index: 10;
+	} 
+}
+.ui-slick-zoomed-while-active{
+
+	.slick-slide{
+		overflow: hidden;
+		.item-container{ 
+			@include transition(ease transform .6s);
+			@include scale(1);
+		}
+		&.slick-active{
+			.item-container{
+				&:hover{
+					@include transition(ease transform 14s);
+					@include scale(1.5);
+				} 
+			}
+		}
+	}
+
+} 
+
+
+.slick-arrow{
+	color: $primary-dark;
+	top: 0;
+	&:before{
+		font-size: 24px;
+	}
+	&:hover,&:focus{
+		color: $primary-dark;
+	}
+	&.slick-prev{
+		left: inherit;
+    right: 50px;
+	}
+	&.slick-next{
+		right:15px;
+	}
+}

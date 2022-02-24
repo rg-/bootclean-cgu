@@ -1,0 +1,135 @@
+$navbar-collapse: lg;
+
+#main-navbar{
+	&[data-toggle=nav-affix]{ 
+		//transition: none!important;
+	}
+	.navbar-nav{
+		> .nav-item{
+			&:not(.show-on-aside-menu){
+				display: flex;
+				align-items: center;
+			}
+			&.dropdown{
+				&.show{
+					> .nav-link:not(.btn){
+						text-decoration-line: underline; 
+				    text-decoration-color:rgba($secondary,.9);
+				    text-shadow: 1px 0 0 currentColor;
+					}
+					> .btn{
+						background-color:$secondary;
+						border-color:$secondary;
+						color:#fff!important; 
+						text-shadow: 1px 0 0 currentColor;
+						&:before{  
+							@include box-shadow(1px 0 0px 0px rgba(#000,.6)); 
+						}
+					}
+				}
+			}
+			> .nav-link{
+				font-weight: 600;
+			}
+			> .nav-link:not(.btn){
+				position: relative;
+				padding: 15px 15px 10px 15px;  
+				text-underline-offset: 10px; 
+				&:hover{
+					
+				}
+			}
+		}
+	} 
+
+
+	
+	&.has-page-header{
+		
+	}
+
+	.navbar-brand{
+		img.logo-default{
+			width: 250px;
+			@include breakpoint($navbar-collapse){
+				width: 314px;
+			}
+		}
+		img.logo-small{
+			width: 165px;
+			@include breakpoint($navbar-collapse){
+				width: 180px;
+			}
+		}
+	}
+
+	padding-top: 15px;
+	padding-bottom: 15px;
+	@include breakpoint($navbar-collapse){
+		&.has-page-header{
+			padding-top: 44px;
+			padding-bottom: 44px;
+		}
+	}
+
+	&.affix{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		@include breakpoint($navbar-collapse){
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		.navbar-brand{
+			img.logo-default{
+				width: 250px;
+			}
+			img.logo-small{
+				width: 165px;
+			}
+		}
+	}
+
+}
+
+
+/*
+
+	.navbar-toggler
+
+*/
+
+
+.navbar-toggler.animate{ 
+	.custom-toggler{
+		width: 36px;
+		height: 36px;
+	}
+ .navbar-toggler-icon{
+	width: 36px;
+	height: 1px;
+	top: 20px;
+	display: flex;
+	justify-content: flex-end;
+ 	&:after,&:before{
+ 		width: 36px;
+ 		height: 1px;
+ 		@include transition();
+ 	}
+ }
+
+ &.close,
+ &[aria-expanded="true"]{
+ 	.navbar-toggler-icon{
+ 		background-color:transparent!important;
+ 		&:after{
+ 			@include rotate(45deg);
+ 			margin-top: 0;
+ 		}
+ 		&:before{
+ 			@include rotate(-45deg);
+ 			margin-top: 0;
+ 		}
+ 	}
+ }
+
+}

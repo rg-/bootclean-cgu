@@ -1,0 +1,40 @@
+
+b, strong{
+	font-weight: 600;
+}
+
+.font-weight-200{
+	font-weight: 200!important;
+}
+.font-weight-300{
+	font-weight: 300!important;
+}
+.font-weight-400{
+	font-weight: 400!important;
+}
+.font-weight-500{
+	font-weight: 500!important;
+}
+.font-weight-600{
+	font-weight: 600!important;
+}
+.font-weight-800{
+	font-weight: 900!important;
+}
+
+.font-size-12{
+	font-size: 11px;
+	letter-spacing: 1px;
+	line-height: 1.8;
+	@include breakpoint(sm){
+		font-size: 12px;
+	}
+}
+.font-size-15{
+	font-size: 11px;
+	letter-spacing: .14px;
+	line-height: 1.67;
+	@include breakpoint(sm){
+		font-size: 15px;
+	}
+}

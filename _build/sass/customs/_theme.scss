@@ -1,0 +1,294 @@
+html,body {
+	height:100%; 
+}
+ 
+
+.content-wrap{ 
+	img{
+		max-width:100%;
+		height:auto;
+	}
+} 
+
+@include breakpoint-max(lg){
+	.container-gutter-mobile{
+		padding-left:34px!important;
+		padding-right:34px!important;
+	}
+	.container{
+		padding-left:34px!important;
+		padding-right:34px!important;
+		max-width: 100%!important;
+	}
+}
+
+
+@import "theme/navbar";
+@import "theme/megamenu";
+@import "theme/footer";
+
+@import "theme/btn";
+@import "theme/form";
+@import "theme/typo";
+
+@import "theme/embed-responsive";
+@import "theme/slick";
+
+.ui-content-extra{
+	position:relative;
+	z-index: 100;
+	.ui-semicircle-dot-down{
+		position: absolute;
+		left: 50%;
+		bottom: 80px;
+		z-index: 100;
+		@include translate(-50%,0);
+	}
+}
+
+//
+
+.attachment-fixed-desktop{
+	.image-cover{
+		@include breakpoint(lg){
+			background-attachment: fixed;  
+		}
+	}
+}
+
+.nav-link:not(.btn){
+	position: relative;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 300;
+	line-height: 1.45;
+	letter-spacing: 1.71px;
+	color: #fff; 
+	padding: 4px 8px;
+	@include transition();
+	&:hover{
+		color: #fff; 
+		text-decoration-line: underline;
+    text-underline-offset: 4px;
+    text-decoration-color:rgba($secondary,.9);
+		text-shadow: 1px 0 0 currentColor;
+	}
+} 
+
+// 
+
+.ui-page-header-shadow{
+	position:absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 160px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.14+0,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.14) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.14) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.14) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+}  
+
+// 
+
+.ui-title-line{
+	position: relative;
+	letter-spacing: 12px; 
+	&:before{
+		content: "";
+		position: absolute;
+		width: 266px;
+		max-width: 100%;
+  	height: 2px;
+  	background-color:rgba($secondary,.2);
+  	top: -29px;
+  	left: 4px;
+  	background-blend-mode: multiply;
+	}
+}
+.ui-title-arrow{
+	position:relative;
+	letter-spacing: 12px; 
+	@include breakpoint(md){
+		left: -6px;
+	}
+	.arrow{
+		display: inline-block;
+		width: 230px;
+		background-image:url('../images/theme/long-arrow-right.svg');
+		background-position: center right;
+		background-repeat: no-repeat;
+		background-size: 230px auto;
+	}
+} 
+
+// 
+
+.ui-sello-lineas{ 
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	@include breakpoint(md){
+		padding:0 $grid-gutter*2;
+	}
+	> span{
+		flex: 1;
+		display: block;
+		height: 2px;
+		background-color:$secondary;
+		&.l{
+			margin: auto 10px auto -20px;
+		}
+		&.r{
+			margin: auto -20px auto 10px;
+		}
+		@include breakpoint(md){
+			margin:auto 40px;
+		}
+	}
+
+} 
+
+//  
+
+.ui-images-overlaped{
+	position: relative;
+	max-width: 500px;
+	margin: auto;
+	
+	.ui-images-overlaped-image{
+		width: 85%; 
+		max-width: 100%;
+		z-index: 20;
+		position: relative; 
+		&.overlaped{
+			z-index: 10;
+			position: relative;
+			right: 0;
+			margin-bottom: -70%;
+			margin-left: auto; 
+		}  
+
+	}
+
+	@include breakpoint(lg){
+		max-width: none;
+		margin: inherit;
+		.ui-images-overlaped-image{
+			width: 382px;
+			&.overlaped{
+					position:absolute;
+					bottom: 100px;
+					margin-bottom:inherit;
+				}
+		}
+		&.overflow-top{ 
+			.ui-images-overlaped-image{
+				&.overlaped{
+					position:absolute;
+					bottom: 300px;
+					margin-bottom:inherit;
+				}
+			}
+		}
+		
+	}
+
+} 
+
+
+
+// ui-post-card
+
+
+.ui-post-card{
+	display: block; 
+	color: $primary;
+	@include transition(ease all .6s);
+	background-color:transparent;
+	position:relative;
+
+	.ui-post-card-caption{
+		
+		overflow:hidden;
+		position:absolute;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0; 
+  	z-index: 10; 
+
+  	&:after{
+  		@include transition(ease all .6s);
+  		@include opacity(0);
+  		content: "";
+  		position:absolute;
+	  	top: 0;
+	  	left: 0;
+	  	right: 0;
+	  	bottom: 0; 
+	  	z-index: 10; 
+	  	background-color:rgba($primary-dark,.9);
+	  	background-blend-mode: multiply;
+  	}
+  	> div{
+  		@include transition(ease all .6s);
+  		@include opacity(0);
+  		@include translateY(20px);
+  		color: #fff;
+			font-weight: 600;
+			text-align:center;
+  		padding: 50px 30px;
+  		position:absolute;
+  		top: 70px;
+	  	left: 53px;
+	  	right: 53px;
+	  	bottom: 70px; 
+	  	z-index: 20; 
+	  	display: flex;
+	  	align-items: center;
+	  	justify-content: center;
+  	}
+	}
+
+	.ui-post-card-image{
+		overflow: hidden;
+		position: relative;
+		.ui-post-card-image-item{
+			@include transition(ease all .6s);
+			@include scale(1);
+		}
+	}
+	.ui-post-card-text{
+		.tag{
+			color: $primary;
+		}
+		.title{
+			color: $primary-dark;
+		}
+	}
+	&:hover{
+		text-decoration: none;
+		background-color:#fff; 
+		.ui-post-card-caption {
+			&:after{
+				top: 70px;
+		  	left: 53px;
+		  	right: 53px;
+		  	bottom: 70px;
+				@include opacity(1);
+			}
+			> div{
+				@include opacity(1);
+  			@include translateY(0);
+			}
+		}
+		.ui-post-card-image-item{ 
+			@include transition(ease all 10s);
+			@include scale(1.5);
+		}
+	}
+}

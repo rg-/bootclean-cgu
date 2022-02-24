@@ -1,0 +1,138 @@
+
+
+
+.btn{
+	font-size: 10px;
+	text-transform: uppercase;
+	font-weight: 300;
+	line-height: 15px;
+	letter-spacing: 1px;
+	padding: 14px 20px 11px 20px!important;
+	box-shadow: none!important;
+
+	&.btn-outline-secondary{
+		
+	}
+
+	&.text-white{
+		&:hover{
+			color:#fff;
+		}
+	} 
+
+	&.btn-lg{
+		font-size: 12px;
+		font-weight: 600;
+		padding: 19px 24px 16px 24px!important;
+	} 
+
+	&.btn-round-angle{
+		position: relative;
+		font-weight: 600;
+		color: currentColor;
+		@include transition();
+		&:before{
+			content: "";
+			position: absolute;
+			top: -1px;
+			left: -1px;
+			right: -1px;
+			bottom: -1px;
+			z-index: 0;
+			border: 1px solid currentColor;
+			border-bottom-right-radius: 32px; 
+		}
+		&:hover{  
+			color:#fff!important; 
+			text-shadow: 1px 0 0 currentColor;
+			&:before{  
+				@include box-shadow(1px 0 0px 0px rgba(#000,.6)); 
+			}
+		}
+	}
+}
+
+.btn-line{
+		font-size: 11px;
+  	font-weight: 600;
+  	letter-spacing: 1.21px;
+  	padding-left: 49px!important;
+  	position: relative;
+  	
+  	>i{
+  		height: 2px;
+  		background-color: $secondary;
+  		width: 41px;
+  		top: 18px;
+  		left: 0;
+  		position: absolute;
+  		display: inline-block; 
+  		@include transition();
+  		&:after,
+  		&:before{
+	  		// content: "";
+	  		height: 2px;
+	  		background-color: $secondary;
+	  		width: 8px; 
+	  		left: 0;
+	  		position: absolute;
+	  		@include transition(.6s ease all);
+	  		@include opacity(0);
+	  		
+	  	}
+	  	&:after{
+	  		top: 3px;
+	  		@include rotate(-45deg);
+	  	}
+	  	&:before{
+	  		top: -3px;
+	  		@include rotate(45deg);
+	  	}
+  	}
+
+  	&:hover{
+  		
+  	}
+	}
+
+a.hover-btn:hover span.btn-line,
+button.btn-line:hover,
+a.btn-line:hover{
+	color: $danger;
+	> i{
+		background-color: transparent; 
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border-bottom-right-radius: 32px;
+    top: 0;
+    border: 1px solid currentColor;
+		&:after,
+		&:before{
+			background-color: currentColor;
+			left: 36px;
+			@include opacity(1);
+		}
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.btn-outline-#{$color}.btn-round-angle{
+		
+		&:before{
+			border-color:$value;
+		}
+		&:hover{
+			background-color:$value;
+			border-color:$value;
+		}
+	}
+	.btn-line-#{$color}.btn-line{
+		> i{
+			background-color:$value;
+		}
+		&:before{
+			background-color:$value;
+		}
+	}
+}
